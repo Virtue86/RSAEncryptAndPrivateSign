@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ilvb_ios/!svn/ver/1480/trunk/candy/tangtang/Core/Manager/Encrypt
+END
+EPRc4CryptorManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ilvb_ios/!svn/ver/1322/trunk/candy/tangtang/Core/Manager/Encrypt/EPRc4CryptorManager.h
+END
+EPRSAEncrypt.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ilvb_ios/!svn/ver/1473/trunk/candy/tangtang/Core/Manager/Encrypt/EPRSAEncrypt.h
+END
+NSData+KKHASH.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ilvb_ios/!svn/ver/1480/trunk/candy/tangtang/Core/Manager/Encrypt/NSData+KKHASH.h
+END
+EPRC4Cryptor.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ilvb_ios/!svn/ver/1319/trunk/candy/tangtang/Core/Manager/Encrypt/EPRC4Cryptor.h
+END
+EPRc4CryptorManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ilvb_ios/!svn/ver/1326/trunk/candy/tangtang/Core/Manager/Encrypt/EPRc4CryptorManager.m
+END
+EPRSAEncrypt.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ilvb_ios/!svn/ver/1477/trunk/candy/tangtang/Core/Manager/Encrypt/EPRSAEncrypt.m
+END
+NSData+KKHASH.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ilvb_ios/!svn/ver/1473/trunk/candy/tangtang/Core/Manager/Encrypt/NSData+KKHASH.m
+END
+EPRC4Cryptor.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ilvb_ios/!svn/ver/1325/trunk/candy/tangtang/Core/Manager/Encrypt/EPRC4Cryptor.m
+END

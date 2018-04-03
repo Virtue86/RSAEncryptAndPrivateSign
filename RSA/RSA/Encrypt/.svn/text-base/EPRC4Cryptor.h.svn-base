@@ -1,0 +1,24 @@
+//
+//  EPRC4Cryptor.h
+//  tangtang
+//
+//  Created by kevin on 2018/1/25.
+//  Copyright © 2018年 pengTang. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface EPRC4Cryptor : NSObject
+
+-(instancetype)initWith:(UInt8 *)key lenght:(int)lenght;
+
+-(void)doFinal:(UInt8 *)cipher input:(UInt8 *)input lenght:(int)lenght;
+
++ (void)byteArr:(UInt8 *)array forString:(NSString *)string;
+//
+//+ (void)decrypt:(UInt8 *)data cipher:(UInt8 *)cipher cipherLength:(int)cipherLength key:(UInt8 *)key keyLength:(int)keyLength;
+//+ (void)encrypt:(UInt8 *)cipher data:(UInt8 *)data dataLength:(int)dataLength key:(UInt8 *)key keyLength:(int)keyLength;
+
+
+
+@end

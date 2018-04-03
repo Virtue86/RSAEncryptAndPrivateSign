@@ -1,0 +1,94 @@
+//
+//  EPRc4CryptorManager.m
+//  tangtang
+//
+//  Created by Virtue on 2018/1/26.
+//  Copyright © 2018年 pengTang. All rights reserved.
+//
+
+#import "EPRc4CryptorManager.h"
+#import "EPRC4Cryptor.h"
+#import "EPFn.h"
+
+
+
+@implementation EPRc4CryptorManager {
+    EPRC4Cryptor *_RC4Encryptor; // 加密
+    EPRC4Cryptor *_RC4Dencryptor; // 解密
+    
+}
+static EPRc4CryptorManager *manager = nil;
++ (instancetype)shareInstance {
+    @synchronized(self)
+    {
+        if (!manager) {
+            manager = [[super allocWithZone:NULL] init];
+        }
+    }
+    
+    return manager;
+}
+
++ (void)releaseInstance
+{
+    @synchronized (self)
+    {
+        if (manager != nil)
+        {
+            manager = nil;
+            
+        }
+    }
+}
+
+- (void)dealloc {
+    LOG_DEBUG(nil, @"Rc4CryptorManager dealloc");
+    _RC4Encryptor =nil;
+    _RC4Dencryptor = nil;
+}
+
+- (void)setEncryptorWithKey:(NSString *)key {
+    UInt8 *keyByte = malloc(key.length);
+    [EPRC4Cryptor byteArr:(UInt8*)keyByte forString:key];
+    
+    LOG_DEBUG("kevin", @"key:%@，key : %@", [EPFn toHex:keyByte lenght:(int)key.length], key);
+    _RC4Encryptor = [[EPRC4Cryptor alloc] initWith:keyByte lenght:(int)key.length];
+}
+
+- (void)setDecoryptorWithKey:(NSString *)key {
+    UInt8 *keyByte = malloc(key.length);
+    [EPRC4Cryptor byteArr:(UInt8*)keyByte forString:key];
+    _RC4Dencryptor = [[EPRC4Cryptor alloc] initWith:keyByte lenght:(int)key.length];
+}
+
+- (NSData *)encryptData:(NSData *)data {
+    if (!_RC4Encryptor) {
+        LOG_DEBUG(nil, @"encryptData but _RC4Encryptor 为 nil");
+        return nil;
+    }
+
+    int length = (int)data.length;
+    UInt8 *input = (UInt8*)[data bytes];
+//    LOG_DEBUG("kevin", @"明文后:%@", [EPFn toHex:input lenght:length]);
+    UInt8* tempTemp = (UInt8*)malloc(length);
+    [_RC4Encryptor doFinal:tempTemp input:input lenght:length];
+//    LOG_DEBUG("kevin", @"加密后:%@", [EPFn toHex:tempTemp lenght:length]);
+    
+//    UInt8* tempTemp2 = (UInt8*)malloc(length);
+//    [_RC4Dencryptor doFinal:tempTemp2 input:tempTemp lenght:length];
+//    LOG_DEBUG("kevin", @"解密后:%@", [EPFn toHex:tempTemp2 lenght:length]);
+
+    return [NSData dataWithBytes:tempTemp length:length];
+}
+
+- (NSData *)dencryptData:(NSData *)data {
+    if (!_RC4Dencryptor) {
+        LOG_DEBUG(nil, @"dencryptData but _RC4Dencryptor 为 nil");
+        return nil;
+    }
+    int length = (int)data.length;
+    UInt8* tempTemp = (UInt8*)malloc(length);
+    [_RC4Dencryptor doFinal:tempTemp input:(UInt8*)[data bytes] lenght:length];
+    return [NSData dataWithBytes:tempTemp length:length];
+}
+@end
