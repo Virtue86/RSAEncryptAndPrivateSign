@@ -14,3 +14,5 @@ rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 可以通过 RSA配置自动生成 工具生成配置代码，打开 rsa_public_key.pem，复制内容到框里点击 生成配置代码 就可以了。
 
 RSA 私钥，公钥验证工具。 http://www.jspatch.com/Tools/rsa
+
+博客地址：http://blog.cocoachina.com/article/95069
